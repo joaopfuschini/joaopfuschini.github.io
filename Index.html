@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>João Pedro Fuschini | Senior Software Developer</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --text-main: #333;
+            --text-light: #666;
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #001f3f, #0056b3);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            object-fit: cover;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        .contact-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 10px;
+            border: 1px solid var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        .contact-links a:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        section {
+            background: var(--white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .skill-item {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 500;
+        }
+        .job {
+            margin-bottom: 2rem;
+        }
+        .job:last-child {
+            margin-bottom: 0;
+        }
+        .job-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .job-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .job ul {
+            margin-left: 1.5rem;
+            color: var(--text-light);
+        }
+        .job li {
+            margin-bottom: 0.5rem;
+        }
+        .education-item {
+            margin-bottom: 1.5rem;
+        }
+        .education-title {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .language-list {
+            list-style: none;
+        }
+        .language-list li {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="Gemini_Self_Portred.png" alt="João Pedro Fuschini" class="profile-img" onerror="this.src='https://via.placeholder.com/150'">
+        <h1>João Pedro de Freitas Fuschini</h1>
+        <p>Senior Software Developer</p>
+        <div class="contact-links">
+            <a href="mailto:joaopfuschini@gmail.com">joaopfuschini@gmail.com</a>
+            <a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-fernandes-8615401/">LinkedIn</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>Professional Summary</h2>
+            <p>Senior Software Developer with extensive experience in the design, development, deployment, and support of enterprise-scale applications. Adept at leveraging modern architectures (Onion Architecture, 3-tier) and agile methodologies to deliver robust financial, HR, operational, and infrastructure management systems. Proven track record in managing server transitions and delivering end-to-end software projects in modern environments, specifically in smart water management, AI-driven predictive maintenance, and enterprise operations.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-item">C# & .NET (3.1 to 8.0)</div>
+                <div class="skill-item">ASP.NET Core & React</div>
+                <div class="skill-item">SQL Server & PostgreSQL</div>
+                <div class="skill-item">Azure & Docker</div>
+                <div class="skill-item">Linux Environments</div>
+                <div class="skill-item">AI/ML Integration</div>
+                <div class="skill-item">Agile & DDD</div>
+                <div class="skill-item">REST APIs & Microservices</div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            
+            <div class="job">
+                <div class="job-title">AGS / Aquasis - Senior Software Developer</div>
+                <div class="job-date">Sep 2023 – Present</div>
+                <ul>
+                    <li>Engineered and deployed critical smart water and energy management software within the Aquasis ecosystem, ensuring high availability in Linux environments using .NET 8.0, PostgreSQL, and Docker.</li>
+                    <li><strong>Flowise (Real-Time Network Monitoring):</strong> Engineered data collection modules that integrate live sensor metrics (pressure, flow, temperature). The system processes data by zone, compares it against historical patterns, and generates prioritized alarms, enabling operational teams to rapidly intervene and reduce non-revenue water.</li>
+                    <li><strong>Flowise Corporate (Enterprise Efficiency Management):</strong> Developed features tailored for large water and energy consumers. The platform communicates with telemetry equipment to import data, generate consumption patterns, and automatically pinpoint anomalies such as invisible leaks or excessive usage, significantly reducing operating costs and promoting environmental sustainability.</li>
+                    <li><strong>Meterwise (Smart Meter Management):</strong> Developed automated data processing algorithms that evaluate the entire water meter park. By cross-referencing variables such as age, brand, and consumption profiles, the system identifies measurement anomalies and generates optimized replacement plans, reducing apparent losses and increasing billing accuracy.</li>
+                    <li><strong>Infrawise (Infrastructure Asset Management & AI Predictive Maintenance):</strong> Maintained and optimized this GIS-integrated platform that maps the lifecycle of water and wastewater assets. Integrated AI/ML capabilities utilizing a Random Survival Forest model to predict failure probabilities and generate optimized pipeline replacement plans, supporting data-driven engineering decisions and ensuring operational sustainability.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-title">McDonalds Portugal Systems - Senior Software Developer</div>
+                <div class="job-date">Internal: Mar 2013 – Aug 2023 | Consultant via ParaRede: Jul 2008 – Mar 2013</div>
+                <ul>
+                    <li>Developed and supported a comprehensive portfolio of medium/small applications aimed at facilitating financial management and operational efficiency for restaurants and corporate offices (using ASP.NET Core 6.0, React, and Azure).</li>
+                    <li><strong>Recruitment:</strong> Built a dynamic tool to fully configure and control the recruitment lifecycle. Integrated Power BI to deliver key performance indicators (KPIs) to national and international management.</li>
+                    <li><strong>Staff Management:</strong> Engineered a robust employee management system handling individual records, absences, holidays, resignations, and support documentation. Automated payroll calculations via Salary Maps, processing extra/night hours and delays.</li>
+                    <li><strong>Restaurant Schedule Management:</strong> Developed a labor law-compliant scheduling application allowing managers to create, map, and adjust employee shifts based on sales history. Tracks entry/departure times, generates absence maps, and monitors compliance routines.</li>
+                    <li><strong>Training Management:</strong> Created a module to manage all restaurant training sessions and automatically generate APCER-validated certificates.</li>
+                    <li><strong>Performance Evaluations:</strong> Implemented a system for managers to insert annual evaluation objectives with an approval workflow. Handles objective grading, final scores, and automatically distributes reports to the HR department.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-title">PTSI (Telecommunications) - IT Consultant</div>
+                <div class="job-date">May 2008 – Jul 2008</div>
+                <ul>
+                    <li>Developed a high-traffic gaming portal using DotNetNuke, ASP.NET, and SQL Server.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-title">ParaRede (IT Consulting) - IT Consultant</div>
+                <div class="job-date">Mar 2007 – Mar 2013</div>
+                <ul>
+                    <li><strong>BES Contact Center (Mar 2008 – May 2008):</strong> Created dynamic customer service applications for bank operations (C#, SQL Server).</li>
+                    <li><strong>BPN Bank (Aug 2007 – Mar 2008):</strong> Developed credit management and overdrawn accounts applications with complex K2 workflow triggers and data import tools.</li>
+                    <li><strong>Banif Bank (Mar 2007 – Jul 2007):</strong> Delivered a Web solution for real estate loan management, handling cost associations, invoices, and condominium fee tracking using ASP.NET and Crystal Reports.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-title">ByteCode (IT Consulting) - IT Consultant</div>
+                <div class="job-date">Mar 2006 – Mar 2007</div>
+                <ul>
+                    <li><strong>Portugal Telecom:</strong> Provided HP Open View Service Desk integrations via WebServices (Java, C#).</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-title">Fnet - Desenvolvimento de software - IT Consultant / Programmer</div>
+                <div class="job-date">Aug 2005 – Mar 2006</div>
+                <ul>
+                    <li>Developed back-office systems and websites for travel agencies using ASP/VBScript and MS Access.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-title">Instituto Politécnico Autónomo (IPA) - Technical Support / Programmer</div>
+                <div class="job-date">Mar 2004 – Jul 2005</div>
+                <ul>
+                    <li>Delivered IT and hardware support and developed small web applications in ASP/VBScript for the Higher Education institution.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education & Training</h2>
+            <div class="education-item">
+                <div class="education-title">Developing Web Application with MVC</div>
+                <div class="job-date">RUMOS, Portugal | 2013</div>
+            </div>
+            <div class="education-item">
+                <div class="education-title">Bachelor's Degree in Informatics – IT Systems</div>
+                <div class="job-date">Instituto Politécnico Autónomo (IPA), Portugal | 2001 – 2005</div>
+            </div>
+        </section>
+
+        <section id="languages">
+            <h2>Languages</h2>
+            <ul class="language-list">
+                <li><strong>Portuguese:</strong> Native</li>
+                <li><strong>English:</strong> Proficient (C1)</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 João Pedro de Freitas Fuschini. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
