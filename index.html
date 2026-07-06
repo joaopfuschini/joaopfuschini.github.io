@@ -58,8 +58,9 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 0.5rem;
+            padding: 0 10px;
         }
         header p {
             font-size: 1.2rem;
@@ -67,14 +68,23 @@
             opacity: 0.9;
             margin-bottom: 1.5rem;
         }
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            max-width: 100%;
+            padding: 0 1rem;
+        }
         .contact-links a {
             color: #ffffff;
             text-decoration: none;
-            margin: 0 10px;
             border: 1px solid #ffffff;
-            padding: 5px 15px;
+            padding: 6px 18px;
             border-radius: 20px;
             transition: all 0.3s;
+            white-space: nowrap;
+            font-size: 0.95rem;
         }
         .contact-links a:hover {
             background: #ffffff;
@@ -190,14 +200,13 @@
 <body>
 
     <header>
-        <!-- Botão Dinâmico que muda o SVG lá dentro -->
         <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
             <svg id="themeIcon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <!-- O ícone inicial (Lua) será injetado/controlado pelo script -->
+                <!-- O ícone dinâmico é injetado pelo script -->
             </svg>
         </button>
 
-        <img src="Gemini_Self_Portred.png" alt="João Pedro Fernandes" class="profile-img" onerror="this.src='https://via.placeholder.com/150'">
+        <img src="Gemini_Self_Portred.png" alt="João Pedro de Freitas Fuschini" class="profile-img" onerror="this.src='https://via.placeholder.com/150'">
         <h1>João Pedro Fernandes</h1>
         <p>Senior Software Engineer</p>
 		<div class="contact-links">
@@ -319,7 +328,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 João Pedro de Freitas Fuschini. All Rights Reserved.</p>
+        <p>&copy; 2026 João Pedro Fernandes. All Rights Reserved.</p>
     </footer>
 
     <script>
