@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,6 +48,68 @@
             padding: 4rem 2rem;
             text-align: center;
         }
+        
+        /* Contentor dos Controlos Minimalistas (Topo Direito) */
+        .header-controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 1000;
+        }
+
+        /* Botão Único de Idioma Alternável */
+        .lang-toggle-btn {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .lang-toggle-btn svg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Botão de Tema */
+        .theme-toggle-btn {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .header-controls button:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+            border-color: #ffffff;
+        }
+        .theme-toggle-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: var(--icon-color);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
         .profile-img {
             width: 150px;
             height: 150px;
@@ -164,49 +226,23 @@
             color: var(--text-light);
             font-size: 0.9rem;
         }
-
-        /* Botão Superior com Efeito Glassmorphism */
-        .theme-toggle-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            backdrop-filter: blur(4px);
-        }
-        .theme-toggle-btn:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: scale(1.05);
-        }
-        .theme-toggle-btn svg {
-            width: 20px;
-            height: 20px;
-            fill: none;
-            stroke: var(--icon-color);
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
     </style>
 </head>
 <body>
 
     <header>
-        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
-            <svg id="themeIcon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <!-- O ícone dinâmico é injetado pelo script -->
-            </svg>
-        </button>
+        <div class="header-controls">
+            <button class="lang-toggle-btn" id="langToggle" aria-label="Mudar Idioma / Switch Language">
+                <svg id="langIcon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Injetado via JS -->
+                </svg>
+            </button>
+            <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+                <svg id="themeIcon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"></svg>
+            </button>
+        </div>
 
-        <img src="Gemini_Self_Portred.png" alt="João Pedro de Freitas Fuschini" class="profile-img" onerror="this.src='https://via.placeholder.com/150'">
+        <img src="Gemini_Self_Portred.png" alt="João Pedro Fernandes" class="profile-img" onerror="this.src='https://via.placeholder.com/150'">
         <h1>João Pedro Fernandes</h1>
         <p>Senior Software Engineer</p>
 		<div class="contact-links">
@@ -217,156 +253,251 @@
 
     <div class="container">
         <section id="about">
-            <h2>Professional Summary</h2>
-            <p>Senior Software Engineer with extensive experience in the design, development, deployment, and support of enterprise-scale applications. Adept at leveraging modern architectures (Onion Architecture, 3-tier) and agile methodologies to deliver robust financial, HR, operational, and infrastructure management systems. Proven track record in managing server transitions and delivering end-to-end software projects in modern environments, specifically in smart water management, AI-driven predictive maintenance, and enterprise operations.</p>
+            <h2 id="title-about">Resumo Profissional</h2>
+            <p id="content-about"></p>
         </section>
 
         <section id="skills">
-            <h2>Core Competencies</h2>
-            <div class="skills-grid">
-                <div class="skill-item">C# & .NET (1.1 to 8.0)</div>
-                <div class="skill-item">ASP.NET Core & React</div>
-                <div class="skill-item">SQL Server & PostgreSQL</div>
-                <div class="skill-item">Docker</div>
-                <div class="skill-item">Linux Environments</div>
-                <div class="skill-item">AI/ML Integration</div>
-                <div class="skill-item">Agile & DDD</div>
-                <div class="skill-item">REST APIs & Microservices</div>
-            </div>
+            <h2 id="title-skills">Competências Principais</h2>
+            <div class="skills-grid" id="content-skills"></div>
         </section>
 
         <section id="experience">
-            <h2>Professional Experience</h2>
-            
-            <div class="job">
-                <div class="job-title">AGS / Aquasis - Senior Software Engineer</div>
-                <div class="job-date">Sep 2023 – Present</div>
-                <ul>
-                    <li>Engineered and deployed critical smart water and energy management software within the Aquasis ecosystem, ensuring high availability in Linux environments using .NET 8.0, PostgreSQL, and Docker.</li>
-                    <li><strong>Flowise (Real-Time Network Monitoring):</strong> Engineered data collection modules that integrate live sensor metrics (pressure, flow, temperature). The system processes data by zone, compares it against historical patterns, and generates prioritized alarms, enabling operational teams to rapidly intervene and reduce non-revenue water.</li>
-                    <li><strong>Flowise Corporate (Enterprise Efficiency Management):</strong> Developed features tailored for large water and energy consumers. The platform communicates with telemetry equipment to import data, generate consumption patterns, and automatically pinpoint anomalies such as invisible leaks or excessive usage, significantly reducing operating costs and promoting environmental sustainability.</li>
-                    <li><strong>Meterwise (Smart Meter Management):</strong> Developed automated data processing algorithms that evaluate the entire water meter park. By cross-referencing variables such as age, brand, and consumption profiles, the system identifies measurement anomalies and generates optimized replacement plans, reducing apparent losses and increasing billing accuracy.</li>
-                    <li><strong>Infrawise (Infrastructure Asset Management & AI Predictive Maintenance):</strong> Maintained and optimized this GIS-integrated platform that maps the lifecycle of water and wastewater assets. Integrated AI/ML capabilities utilizing a Random Survival Forest model to predict failure probabilities and generate optimized pipeline replacement plans, supporting data-driven engineering decisions and ensuring operational sustainability.</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <div class="job-title">McDonalds Portugal Systems - Senior Software Engineer</div>
-                <div class="job-date">Internal: Mar 2013 – Aug 2023 | Consultant via ParaRede: Jul 2008 – Mar 2013</div>
-                <ul>
-                    <li>Developed and supported a comprehensive portfolio of medium/small applications aimed at facilitating financial management and operational efficiency for restaurants and corporate offices (using ASP.NET Core 6.0, React).</li>
-                    <li><strong>Recruitment:</strong> Built a dynamic tool to fully configure and control the recruitment lifecycle. Integrated Power BI to deliver key performance indicators (KPIs) to national and international management.</li>
-                    <li><strong>Staff Management:</strong> Engineered a robust employee management system handling individual records, absences, holidays, resignations, and support documentation. Automated payroll calculations via Salary Maps, processing extra/night hours and delays.</li>
-                    <li><strong>Restaurant Schedule Management:</strong> Developed a labor law-compliant scheduling application allowing managers to create, map, and adjust employee shifts based on sales history. Tracks entry/departure times, generates absence maps, and monitors compliance routines.</li>
-                    <li><strong>Training Management:</strong> Created a module to manage all restaurant training sessions and automatically generate APCER-validated certificates.</li>
-                    <li><strong>Performance Evaluations:</strong> Implemented a system for managers to insert annual evaluation objectives with an approval workflow. Handles objective grading, final scores, and automatically distributes reports to the HR department.</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <div class="job-title">PTSI (Telecommunications) - IT Consultant</div>
-                <div class="job-date">May 2008 – Jul 2008</div>
-                <ul>
-                    <li>Developed a high-traffic gaming portal using DotNetNuke, ASP.NET, and SQL Server.</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <div class="job-title">ParaRede (IT Consulting) - IT Consultant</div>
-                <div class="job-date">Mar 2007 – Mar 2013</div>
-                <ul>
-                    <li><strong>BES Contact Center (Mar 2008 – May 2008):</strong> Created dynamic customer service applications for bank operations (C#, SQL Server).</li>
-                    <li><strong>BPN Bank (Aug 2007 – Mar 2008):</strong> Developed credit management and overdrawn accounts applications with complex K2 workflow triggers and data import tools.</li>
-                    <li><strong>Banif Bank (Mar 2007 – Jul 2007):</strong> Delivered a Web solution for real estate loan management, handling cost associations, invoices, and condominium fee tracking using ASP.NET and Crystal Reports.</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <div class="job-title">ByteCode (IT Consulting) - IT Consultant</div>
-                <div class="job-date">Mar 2006 – Mar 2007</div>
-                <ul>
-                    <li><strong>Portugal Telecom:</strong> Provided HP Open View Service Desk integrations via WebServices (Java, C#).</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <div class="job-title">Fnet - Desenvolvimento de software - IT Consultant / Programmer</div>
-                <div class="job-date">Aug 2005 – Mar 2006</div>
-                <ul>
-                    <li>Developed back-office systems and websites for travel agencies using ASP/VBScript and MS Access.</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <div class="job-title">Instituto Politécnico Autónomo (IPA) - Technical Support / Programmer</div>
-                <div class="job-date">Mar 2004 – Jul 2005</div>
-                <ul>
-                    <li>Delivered IT and hardware support and developed small web applications in ASP/VBScript for the Higher Education institution.</li>
-                </ul>
-            </div>
+            <h2 id="title-experience">Experiência Profissional</h2>
+            <div id="content-experience"></div>
         </section>
 
         <section id="education">
-            <h2>Education & Training</h2>
-            <div class="education-item">
-                <div class="education-title">Developing Web Application with MVC</div>
-                <div class="job-date">RUMOS, Portugal | 2013</div>
-            </div>
-            <div class="education-item">
-                <div class="education-title">Bachelor's Degree in Informatics – IT Systems</div>
-                <div class="job-date">Instituto Politécnico Autónomo (IPA), Portugal | 2001 – 2005</div>
-            </div>
+            <h2 id="title-education">Educação & Formação</h2>
+            <div id="content-education"></div>
         </section>
 
         <section id="languages">
-            <h2>Languages</h2>
-            <ul class="language-list">
-                <li><strong>Portuguese:</strong> Native</li>
-                <li><strong>English:</strong> Proficient (C1)</li>
-            </ul>
+            <h2 id="title-languages">Idiomas</h2>
+            <ul class="language-list" id="content-languages"></ul>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2026 João Pedro Fernandes. All Rights Reserved.</p>
+        <p>&copy; 2026 João Pedro Fernandes. <span id="text-rights">Todos os Direitos Reservados.</span></p>
     </footer>
 
     <script>
-        const toggleBtn = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        
-        // Paths vetoriais limpos para Sol e Lua
-        const moonPath = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
-        const sunPath = `<circle cx="12" cy="12" r="5"></circle>
-                         <line x1="12" y1="1" x2="12" y2="3"></line>
-                         <line x1="12" y1="21" x2="12" y2="23"></line>
-                         <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                         <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                         <line x1="1" y1="12" x2="3" y2="12"></line>
-                         <line x1="21" y1="12" x2="23" y2="12"></line>
-                         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
-
-        // Define o ícone com base no tema atual
-        function updateIcon(theme) {
-            if (theme === 'dark') {
-                themeIcon.innerHTML = sunPath;
-            } else {
-                themeIcon.innerHTML = moonPath;
+        const translations = {
+            en: {
+                aboutTitle: "Professional Summary",
+                aboutContent: "Senior Software Engineer with solid experience in the design, development, and evolution of enterprise ecosystems. Specialist in modern architectures and agile methodologies, with a proven ability to translate the needs of multiple business sectors into robust and scalable systems",
+                skillsTitle: "Core Competencies",
+                skills: ["C# & .NET (1.1 to 8.0)", "ASP.NET Core & React", "SQL Server & PostgreSQL", "Docker", "Linux Environments", "AI/ML Integration", "Agile & DDD", "REST APIs & Microservices"],
+                experienceTitle: "Professional Experience",
+                jobs: [
+                    {
+                        title: "AGS / Aquasis - Senior Software Engineer",
+                        date: "Sep 2023 – Present",
+                        bullets: [
+                            "Engineered and deployed critical smart water and energy management software within the Aquasis ecosystem, ensuring high availability in Linux environments using .NET 8.0, PostgreSQL, and Docker.",
+                            "<strong>Flowise (Real-Time Network Monitoring):</strong> Engineered data collection modules that integrate live sensor metrics (pressure, flow, temperature). The system processes data by zone, compares it against historical patterns, and generates prioritized alarms, enabling operational teams to rapidly intervene and reduce non-revenue water.",
+                            "<strong>Flowise Corporate (Enterprise Efficiency Management):</strong> Developed features tailored for large water and energy consumers. The platform communicates with telemetry equipment to import data, generate consumption patterns, and automatically pinpoint anomalies such as invisible leaks or excessive usage, significantly reducing operating costs and promoting environmental sustainability.",
+                            "<strong>Meterwise (Smart Meter Management):</strong> Developed automated data processing algorithms that evaluate the entire water meter park. By cross-referencing variables such as age, brand, and consumption profiles, the system identifies measurement anomalies and generates optimized replacement plans, reducing apparent losses and increasing billing accuracy.",
+                            "<strong>Infrawise (Infrastructure Asset Management & AI Predictive Maintenance):</strong> Maintained and optimized this GIS-integrated platform that maps the lifecycle of water and wastewater assets. Integrated AI/ML capabilities utilizing a Random Survival Forest model to predict failure probabilities and generate optimized pipeline replacement plans, supporting data-driven engineering decisions and ensuring operational sustainability."
+                        ]
+                    },
+                    {
+                        title: "McDonalds Portugal Systems - Senior Software Engineer",
+                        date: "Internal: Mar 2013 – Aug 2023 | Consultant via ParaRede: Jul 2008 – Mar 2013",
+                        bullets: [
+                            "Developed and supported a comprehensive portfolio of medium/small applications aimed at facilitating financial management and operational efficiency for restaurants and corporate offices (using ASP.NET Core 6.0, React).",
+                            "<strong>Recruitment:</strong> Built a dynamic tool to fully configure and control the recruitment lifecycle. Integrated Power BI to deliver key performance indicators (KPIs) to national and international management.",
+                            "<strong>Staff Management (Personnel Management):</strong> Developed an application that enables the comprehensive management of the entire personnel database, including payroll maps, transfer workflows, and related operational data.",
+                            "<strong>Restaurant Schedule & Shift Management:</strong> Developed a scheduling application aligned with labor rules to create, map, and adjust employee shifts based on sales history. Tracks clock-ins/clock-outs, monitors staff handwashing routines, automatically generates absence reports, and creates official scheduling maps for the ACT (Authority for Working Conditions).",
+                            "<strong>Training Management:</strong> Created a module to manage all restaurant training sessions and automatically generate APCER-validated certificates.",
+                            "<strong>Performance Evaluations:</strong> Implemented a system for managers to insert annual evaluation objectives with an approval workflow. Handles objective grading, final scores, and automatically distributes reports to the HR department."
+                        ]
+                    },
+                    {
+                        title: "PTSI (Telecommunications) - IT Consultant",
+                        date: "May 2008 – Jul 2008",
+                        bullets: ["Developed a high-traffic gaming portal using DotNetNuke, ASP.NET, and SQL Server."]
+                    },
+                    {
+                        title: "ParaRede (IT Consulting) - IT Consultant",
+                        date: "Mar 2007 – Mar 2013",
+                        bullets: [
+                            "<strong>BPN Bank (Aug 2007 – Mar 2008):</strong> Development of BPN's Overdraft application. The application allows tracking and controlling accounts with an overdraft balance, as well as setting interest rates.",
+                            "<strong>BES Contact Center (Mar 2008 – May 2008):</strong> This project is characterized by a set of several developments aimed at connecting incoming calls received by the operator with the forms to be filled out. Among the various projects carried out, the most prominent was the development of an application for Citibank that enabled multiple banking operations (e.g., statement inquiries, customer information, etc.).",
+                            "<strong>Banif Bank (Mar 2007 – Jul 2007):</strong> Delivered a Web solution for real estate loan management, handling cost associations, invoices, and condominium fee tracking using ASP.NET and Crystal Reports."
+                        ]
+                    },
+                    {
+                        title: "ByteCode (IT Consulting) - IT Consultant",
+                        date: "Mar 2006 – Mar 2007",
+                        bullets: ["<strong>Portugal Telecom:</strong> Provided HP Open View Service Desk integrations via WebServices (Java, C#)."]
+                    },
+                    {
+                        title: "Fnet - Desenvolvimento de software - IT Consultant / Programmer",
+                        date: "Aug 2005 – Mar 2006",
+                        bullets: ["Developed back-office systems and websites for travel agencies using ASP/VBScript and MS Access."]
+                    },
+                    {
+                        title: "Instituto Politécnico Autónomo (IPA) - Technical Support / Programmer",
+                        date: "Mar 2004 – Jul 2005",
+                        bullets: ["Delivered IT and hardware support and developed small web applications in ASP/VBScript for the Higher Education institution."]
+                    }
+                ],
+                educationTitle: "Education & Training",
+                education: [
+                    { title: "Developing Web Application with MVC", details: "RUMOS, Portugal | 2013" },
+                    { title: "Bachelor's Degree in Informatics – IT Systems", details: "Instituto Politécnico Autónomo (IPA), Portugal | 2001 – 2005" }
+                ],
+                languagesTitle: "Languages",
+                languages: ["<strong>Portuguese:</strong> Native", "<strong>English:</strong> Proficient (C1)"],
+                rights: "All Rights Reserved."
+            },
+            pt: {
+                aboutTitle: "Resumo Profissional",
+                aboutContent: "Engenheiro de Software Sénior com sólida experiência no desenho, desenvolvimento e evolução de ecossistemas empresariais. Especialista em arquiteturas modernas e metodologias ágeis, com capacidade comprovada de traduzir as necessidades de múltiplos setores de negócio em sistemas robustos e escaláveis",
+                skillsTitle: "Competências Principais",
+                skills: ["C# & .NET (1.1 ao 8.0)", "ASP.NET Core & React", "SQL Server & PostgreSQL", "Docker", "Ambientes Linux", "Integração de IA/ML", "Agile & DDD", "REST APIs & Microserviços"],
+                experienceTitle: "Experiência Profissional",
+                jobs: [
+                    {
+                        title: "AGS / Aquasis - Engenheiro de Software Sénior",
+                        date: "Set 2023 – Presente",
+                        bullets: [
+                            "Desenvolvimento e implementação de software crítico de gestão inteligente de água e energia no ecossistema Aquasis, garantindo alta disponibilidade em ambientes Linux utilizando .NET 8.0, PostgreSQL e Docker.",
+                            "<strong>Flowise (Monitorização de Rede em Tempo Real):</strong> Engenharia de módulos de recolha de dados que integram métricas de sensores em direto (pressão, caudal, temperatura). O sistema processa os dados por zona, compara-os com padrões históricos e gera alarmes priorizados, permitindo que as equipas operacionais intervenham rapidamente e reduzam a água não faturada.",
+                            "<strong>Flowise Corporate (Gestão de Eficiência Empresarial):</strong> Desenvolvimento de funcionalidades adaptadas para grandes consumidores de água e energia. A plataforma comunica com equipamentos de telemetria para importar dados, gerar padrões de consumo e identificar automaticamente anomalias como fugas invisíveis ou utilização excessiva, reduzindo significativamente os custos operacionais e promovendo a sustentabilidade ambiental.",
+                            "<strong>Meterwise (Gestão de Contadores Inteligentes):</strong> Desenvolvimento de algoritmos automatizados de processamento de dados que avaliam todo o parque de contadores de água. Ao cruzar variáveis como idade, marca e perfis de consumo, o sistema identifica anomalias de medição e gera planos de substituição otimizados, reduzindo as perdas aparentes e aumentando a precisão da faturação.",
+                            "<strong>Infrawise (Gestão de Ativos de Infraestrutura e Manutenção Preditiva por IA):</strong> Manutenção e otimização desta plataforma integrada com GIS que mapeia o ciclo de vida dos ativos de água e águas residuais. Integração de capacidades de IA/ML utilizando um modelo Random Survival Forest para prever probabilidades de falha e gerar planos otimizados de substituição de condutas, apoiando decisões de engenharia baseadas em dados e garantindo a sustentabilidade operacional."
+                        ]
+                    },
+                    {
+                        title: "McDonalds Portugal Systems - Engenheiro de Software Sénior",
+                        date: "Interno: Set 2013 – Ago 2023 | Consultor via ParaRede: Jul 2008 – Mar 2013",
+                        bullets: [
+                            "Desenvolvimento e suporte de um portfólio abrangente de médias e pequenas aplicações destinadas a facilitar a gestão financeira e a eficiência operacional de restaurantes e escritórios corporativos (utilizando ASP.NET Core 6.0, React).",
+                            "<strong>Recrutamento:</strong> Construção de uma ferramenta dinâmica para configurar e controlar totalmente o ciclo de vida do recrutamento. Integração do Power BI para fornecer indicadores-chave de desempenho (KPIs) à gestão nacional e internacional.",
+                            "<strong>Gestão de Pessoal (Staff):</strong> Aplicação que permite efetuar a gestão de toda a base de dados de pessoal, incluindo mapas de salários, workflows de transferências, etc.",
+                            "<strong>Gestão de Horários e Turnos:</strong> Desenvolvimento de uma aplicação onde, mediante as nossas regras laborais, é possível criar e alterar os vários horários de funcionários, gerando no final os mapas para a ACT. Controla as lavagens de mãos e as picagens dos funcionários, cria relatórios de faltas e efetua planos de turno para alocar mais facilmente os funcionários a cada posto, tendo em conta o histórico de vendas.",
+                            "<strong>Gestão de Formação:</strong> Criação de um módulo para gerir todas as sessões de formação dos restaurantes e gerar automaticamente certificados validados pela APCER.",
+                            "<strong>Avaliações de Desempenho:</strong> Implementação de um sistema para os gestores inserirem objetivos anuais de avaliação com um fluxo de aprovação. Trata da classificação de objetivos, pontuações finais e distribui automaticamente relatórios para o departamento de Recursos Humanos."
+                        ]
+                    },
+                    {
+                        title: "PTSI (Telecomunicações) - Consultor de TI",
+                        date: "Mai 2008 – Jul 2008",
+                        bullets: ["Desenvolvimento do portal dos jogos Lisboa utilizando DotNetNuke, ASP.NET e SQL Server."]
+                    },
+                    {
+                        title: "ParaRede (Consultoria de TI) - Consultor de TI",
+                        date: "Mar 2007 – Mar 2013",
+                        bullets: [
+                            "<strong>BPN Bank (Ago 2007 – Mar 2008):</strong> Desenvolvimento da aplicação de descobertos do BPN. A aplicação permite controlar as contas com saldo a descoberto, assim como o estabelecimento de taxas de juro.",
+                            "<strong>BES Contact Center (Mar 2008 – Mai 2008):</strong> Este projeto caracteriza-se pelo conjunto de vários desenvolvimentos que visavam fazer a ligação entre as chamadas recebidas pelo operador e os formulários a preencher. Dos vários projetos realizados, o que mais se destacou foi o desenvolvimento de uma aplicação para o Citibank que permitia realizar diversas operações bancárias (por ex. consulta de extratos, informação de clientes, etc.).",
+                            "<strong>Banif Bank (Mar 2007 – Jul 2007):</strong> A aplicação permite ao banco gerir as rendas sobre os imóveis, assim como todo de tipo de custos e proveitos associados aos mesmos; emissão de recibos de pagamento e folhas de condomínio. Permite igualmente, efetuar listagens globais para apresentação de contas à administração utilizando ASP.NET e Crystal Reports."
+                        ]
+                    },
+                    {
+                        title: "ByteCode (Consultoria de TI) - Consultor de TI",
+                        date: "Mar 2006 – Mar 2007",
+                        bullets: ["<strong>Portugal Telecom:</strong> Integrações com o HP Open View Service Desk através de WebServices (Java, C#)."]
+                    },
+                    {
+                        title: "Fnet - Desenvolvimento de software - Consultor de TI / Programador",
+                        date: "Ago 2005 – Mar 2006",
+                        bullets: ["Desenvolvimento de sistemas de back-office e websites para agências de viagens utilizando ASP/VBScript e MS Access."]
+                    },
+                    {
+                        title: "Instituto Politécnico Autónomo (IPA) - Suporte Técnico / Programador",
+                        date: "Mar 2004 – Jul 2005",
+                        bullets: ["Prestação de suporte informático e de hardware e desenvolvimento de pequenas aplicações web em ASP/VBScript para a instituição de Ensino Superior."]
+                    }
+                ],
+                educationTitle: "Educação & Formação",
+                education: [
+                    { title: "Developing Web Application with MVC (Desenvolvimento Web)", details: "RUMOS, Portugal | 2013" },
+                    { title: "Bacharelato / Licenciatura em Informática – Sistemas de Informação", details: "Instituto Politécnico Autónomo (IPA), Portugal | 2001 – 2005" }
+                ],
+                languagesTitle: "Idiomas",
+                languages: ["<strong>Português:</strong> Nativo", "<strong>Inglês:</strong> Proficiente (C1)"],
+                rights: "Todos os Direitos Reservados."
             }
+        };
+
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const langToggleBtn = document.getElementById('langToggle');
+        const langIcon = document.getElementById('langIcon');
+        
+        const ptFlagSVG = `
+            <rect width="512" height="512" fill="#de2118"/>
+            <rect width="204" height="512" fill="#0d5e14"/>
+            <circle cx="204" cy="256" r="100" fill="#f7ca18"/>
+            <rect x="174" y="206" width="60" height="100" fill="#ffffff" rx="10"/>
+            <rect x="184" y="216" width="40" height="80" fill="#0033aa"/>
+        `;
+        const gbFlagSVG = `
+            <rect width="512" height="512" fill="#012169"/>
+            <path d="M0 0h512v512H0z" fill="none"/>
+            <path d="M0 0l512 512M512 0L0 512" stroke="#fff" stroke-width="60"/>
+            <path d="M0 0l512 512M512 0L0 512" stroke="#c8102e" stroke-width="40"/>
+            <path d="M256 0v512M0 256h512" stroke="#fff" stroke-width="100"/>
+            <path d="M256 0v512M0 256h512" stroke="#c8102e" stroke-width="60"/>
+        `;
+
+        const moonPath = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
+        const sunPath = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
+
+        function updateIcon(theme) {
+            themeIcon.innerHTML = (theme === 'dark') ? sunPath : moonPath;
         }
 
-        // Inicialização
-        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light';
-        if (currentTheme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
+        function setLanguage(lang) {
+            localStorage.setItem('language', lang);
+            langIcon.innerHTML = (lang === 'pt') ? ptFlagSVG : gbFlagSVG;
+
+            const data = translations[lang];
+
+            document.getElementById('title-about').textContent = data.aboutTitle;
+            document.getElementById('content-about').innerHTML = data.aboutContent;
+
+            document.getElementById('title-skills').textContent = data.skillsTitle;
+            document.getElementById('content-skills').innerHTML = data.skills.map(s => `<div class="skill-item">${s}</div>`).join('');
+
+            document.getElementById('title-experience').textContent = data.experienceTitle;
+            document.getElementById('content-experience').innerHTML = data.jobs.map(job => `
+                <div class="job">
+                    <div class="job-title">${job.title}</div>
+                    <div class="job-date">${job.date}</div>
+                    <ul>${job.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+                </div>
+            `).join('');
+
+            document.getElementById('title-education').textContent = data.educationTitle;
+            document.getElementById('content-education').innerHTML = data.education.map(ed => `
+                <div class="education-item">
+                    <div class="education-title">${ed.title}</div>
+                    <div class="job-date">${ed.details}</div>
+                </div>
+            `).join('');
+
+            document.getElementById('title-languages').textContent = data.languagesTitle;
+            document.getElementById('content-languages').innerHTML = data.languages.map(l => `<li>${l}</li>`).join('');
+            document.getElementById('text-rights').textContent = data.rights;
         }
+
+        // Inicialização do Tema
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
         updateIcon(currentTheme);
 
-        // Listener do Click
-        toggleBtn.addEventListener('click', () => {
+        // Inicialização do Idioma
+        const currentLang = localStorage.getItem('language') || 'pt'; 
+        setLanguage(currentLang);
+
+        // Listeners
+        themeToggleBtn.addEventListener('click', () => {
             let theme = document.documentElement.getAttribute('data-theme');
-            
             if (theme === 'dark') {
                 document.documentElement.setAttribute('data-theme', 'light');
                 localStorage.setItem('theme', 'light');
@@ -376,6 +507,11 @@
                 localStorage.setItem('theme', 'dark');
                 updateIcon('dark');
             }
+        });
+
+        langToggleBtn.addEventListener('click', () => {
+            let lang = localStorage.getItem('language') || 'pt';
+            setLanguage(lang === 'pt' ? 'en' : 'pt');
         });
     </script>
 </body>
